@@ -5,7 +5,7 @@ import find.CourseFind;
 import find.MNFind;
 import find.PrenameFind;
 import find.SurnameFind;
-import main.Console;
+import abgabe3.Console;
 import stack.Stackable;
 
 import java.util.Scanner;
@@ -38,7 +38,12 @@ public class Factory {
                     }
                     break;
                 case 4:
-                    searching(stack);
+                    if(stack.empty()==true) {
+                        System.out.println("Stack is empty");
+                    }else{
+                        System.out.println("Stack contains the following information : ");
+                        stack.printAll();
+                    }
                     break;
                 case 5:
                     stack.clear();
@@ -52,6 +57,16 @@ public class Factory {
                     break;
                 case 7:
                     System.out.println(stack.size());
+                    break;
+                case 8:
+                    searching(stack);
+                    break;
+                case 9:
+                    Student s1 = new Student("Aronson", "Aron", 1,111);
+                    Student s2 = new Student("Burt", "Brad", 2,222);
+                    stack.push(s1);
+                    stack.push(s2);
+                    stack.printAll();
                     break;
                 case 0:
                     return;
@@ -115,6 +130,8 @@ public class Factory {
             System.out.println("5.Clear stack");
             System.out.println("6.Print all students from stack");
             System.out.println("7.Get size of the stack");
+            System.out.println("8.Find a student on the stack");
+            System.out.println("9. Add default student");
             System.out.println("0.Exit");
         }
 

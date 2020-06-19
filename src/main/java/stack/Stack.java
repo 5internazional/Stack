@@ -12,6 +12,9 @@ public class Stack<T> implements Stackable<T> {
         T data;
         Node next;
     }
+    public Iterator<T> iterator() {
+        return new StackIterator();
+    }
 
     private class StackIterator implements Iterator<T>{
         Node next;
@@ -30,11 +33,7 @@ public class Stack<T> implements Stackable<T> {
             T result = next.data;
             next = next.next;
             return result;
-                }
-
-    }
-    public Iterator<T> iterator() {
-        return new StackIterator();
+        }
     }
 
 
